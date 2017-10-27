@@ -17,7 +17,7 @@ The program should do the following:
 
 Using a kmer size of 8 and reporting the top 10 kmers and their counts:
 
-    kmer_counter.py 8 reads.left.fq 10
+    kmer_counter.py 8 reads.fq 10
 
 .
 
