@@ -19,7 +19,7 @@ def main():
     gene_read_counter = dict()
 
     # run command to convert bam to sam
-    cmd = "gunzip -c {}".format(samfile_gzip))
+    cmd = "gunzip -c {}".format(samfile_gzip)
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # read the sam formatted output line by line
@@ -41,7 +41,8 @@ def main():
             read_set = gene_read_counter[gene_name]
             read_set.add(read_name)
         else:
-            gene_read_counter[gene_name] = set(read_name)
+            gene_read_counter[gene_name] = set()
+            gene_read_counter[gene_name].add(read_name)
     
     ret = p.wait()
 
@@ -56,9 +57,9 @@ def main():
     for gene_name in sorted(gene_read_counter, key=lambda x:len(gene_read_counter[x]), reverse=True):
         read_set = gene_read_counter[gene_name]
         num_reads = len(read_set)
-        #print("\t".join([gene_name, str(num_reads)]))
-        for read in read_set:
-            print("\t".join([gene_name, read]))
+        print("\t".join([gene_name, str(num_reads)]))
+        #for read in read_set:
+        #    print("\t".join([gene_name, read]))
     
     sys.exit(0)
     
