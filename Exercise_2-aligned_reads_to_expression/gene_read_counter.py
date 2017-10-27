@@ -13,13 +13,13 @@ if len(sys.argv) < 2:
 def main():
 
     # capture command line argument
-    bam_filename = sys.argv[1]
-
+    samfile_gzip = sys.argv[1]
+    
     # create hashtable for storing reads associated with genes
     gene_read_counter = dict()
 
     # run command to convert bam to sam
-    cmd = "samtools view {}".format(bam_filename)
+    cmd = "gunzip -c {}".format(samfile_gzip))
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # read the sam formatted output line by line
@@ -56,7 +56,9 @@ def main():
     for gene_name in sorted(gene_read_counter, key=lambda x:len(gene_read_counter[x]), reverse=True):
         read_set = gene_read_counter[gene_name]
         num_reads = len(read_set)
-        print("\t".join([gene_name, str(num_reads)]))
+        #print("\t".join([gene_name, str(num_reads)]))
+        for read in read_set:
+            print("\t".join([gene_name, read]))
     
     sys.exit(0)
     
