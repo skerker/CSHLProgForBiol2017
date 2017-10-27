@@ -17,6 +17,7 @@ would return:
 ...
 
 
+
 # About the data:
 
 The alignments are stored in a 'bam' file - the binary equivalent of the 'sam' file format.  The format of the alignments are like so, showing the first few rows:
@@ -32,7 +33,7 @@ For these data, the transcript identifiers include the gene identifier as a pref
 >Note that a read that aligns to a region of shared sequence among multiple splicing isoforms for a gene will end up mapping to each of those isoforms (ie. multiply mapped).  If we are going to count reads mapping to genes, we'll want to count each read-to-gene mapping only once.
 
 
-# Implementation oprions:
+# Implementation options:
 
 You'll need to convert the bam file to sam file format in order to more easily read the data in your program. Youc an do this directly using samtools:
 
@@ -40,11 +41,8 @@ You'll need to convert the bam file to sam file format in order to more easily r
 
 and then parse that tab-delimited text file.
 
->For those that want more of a challenge, try running the samtools conversion within your program and reading the output directly.
+>Note, if you don't have 'samtools' installed to perform the conversion to 'sam', then use the '.sam.gz' file instead.  This you can gunzip to decompress before parsing, either before running your script or within your script (more challenging).
 
-
-
-# Hints
 
 
 
