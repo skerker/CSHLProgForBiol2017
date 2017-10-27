@@ -1,0 +1,41 @@
+Hints:
+
+For command line arguments:  use 'sys.argv'
+
+Reading the fastq:   you just want the 'sequence' line, which is
+every 2nd line of a fastq record.   (use  line_count % 4 == 2)
+
+Line_count, record,   (line_count % mod 4)
+1	@readname                     1
+2            GATCGATCCC....              2
+3           +                                           3
+4            BCAC#######....           0        
+5           @readname2                    1
+6            CCGGGCCCAAT....            2
+7           +                                            3
+8            CBACCCCCBBBBB....      0
+9    .....
+
+Hint on counting kmers:
+Create a single 'dict' to hold the kmer counts.  (ie.  'kmer_dict = {}')
+Add kmer counts to the dict for each sequence.
+Write a function that takes a sequence and the kmer_dict and increments counts.
+
+def  count_kmers(kmer_dict, sequence):
+        # iterate through kmers
+        for i in range(0, len(sequence)-kmer_len+1):
+                 get kmer starts at i and is kmer_length long.
+                # add kmers to kmer_dict. 
+                # note, if already there, increment the count instead of adding.
+
+Sorting hash by value:
+    sorted_kmers = sorted(kmer_dict, key=lambda x:kmer_dict[x], reverse=True)
+
+
+
+
+
+
+
+
+
