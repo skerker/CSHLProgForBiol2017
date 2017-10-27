@@ -8,13 +8,22 @@ For example:
 
 would return:
 
-    CG14995	1663
-    S-Lap3	1608
-    Eno	1423
-    sqd	877
-    AdipoR	801
-    Est-6	789
-...
+    CG14995 1654
+    S-Lap3  1598
+    Eno     1415
+    sqd     866
+    AdipoR  792
+    Est-6   780
+    Cnx99A  777
+    eff     770
+    CG31948 709
+    eIF5B   671
+    Aldh-III        634
+    CG6424  604
+    Calx    542
+    ...
+
+
 
 
 
